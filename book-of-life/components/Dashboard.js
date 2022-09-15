@@ -10,8 +10,8 @@ export default function Dashboard() {
   const User = supabaseClient.auth.user()
 
   const [posts, setPosts] = useState([]);
-  const [post, setPost] = useState({ title: " ", content: " " })
-  const { title, content } = post;
+  const [post, setPost] = useState({content: " " })
+  const { content } = post;
   useEffect(() => {
     fetchPosts()
   }, [])
@@ -19,9 +19,8 @@ export default function Dashboard() {
   async function fetchPosts() {
     const { data } = await supabaseClient
       .from('posts')
-      .select()
+      .select().eq('userId', User.id)
     setPosts(data)
-    console.log("data:", data)
   }
 
   async function createPost() {
@@ -29,7 +28,7 @@ export default function Dashboard() {
     await supabaseClient
       .from('posts')
       .insert([
-        { title: " ", content: " ", userId }
+        { content,userId }
       ])
     fetchPosts()
   }
@@ -41,21 +40,15 @@ export default function Dashboard() {
         <Button variant="contained">{User.user_metadata.name}</Button>
         <Button variant="contained" onClick={signout}>Signout</Button>
         <input
-          placeholder="Title"
-          value={title}
-          onChange={e => { setPost({title: e.target.value }) }}
-        />
-        <input
           placeholder="Content"
           value={content}
-          onChange={e => { setPost({content: e.target.value }) }}
+          onChange={e => { setPosts({...posts,content: e.target.value }) }}
         />
 
         <Button variant="contained" onClick={createPost}>Create POST</Button>
-        {
-          posts.map(post => (
+        {posts.map(post => (
             <div key={post.id}>
-              <h3>{post.title} </h3>
+              <h3>{post.created_at.substring(0,10)} </h3>
               <p>{post.content} </p>
             </div>
           ))
