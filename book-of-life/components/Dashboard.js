@@ -26,10 +26,11 @@ export default function Dashboard() {
   }
 
   async function createPost() {
+    const userId = User.id;
     await supabaseClient
       .from('posts')
       .insert([
-        { title: "", content: "" }
+        { title: " ", content: " ", userId }
       ])
     fetchPosts()
   }
