@@ -24,15 +24,7 @@ export default function Dashboard() {
     setPosts(data)
   }
 
-  async function createPost() {
-    const userId = User.id;
-    await supabaseClient
-      .from('posts')
-      .insert([
-        { content, userId }
-      ])
-    fetchPosts()
-  }
+  
   function getRandomColor() {
     var letters = 'BCDEF'.split('');
     var color = '#';
