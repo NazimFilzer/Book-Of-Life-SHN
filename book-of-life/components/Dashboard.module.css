@@ -6,3 +6,11 @@
     justify-content: center;
     row-gap: 40px;
 }
+.posts_container
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:50px;
+}
