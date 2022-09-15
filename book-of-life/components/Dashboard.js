@@ -42,7 +42,7 @@ export default function Dashboard() {
         <input
           placeholder="Content"
           value={content}
-          onChange={e => { setPosts({...posts,content: e.target.value }) }}
+          onChange={e => { setPost({...posts,content: e.target.value }) }}
         />
 
         <Button variant="contained" onClick={createPost}>Create POST</Button>
