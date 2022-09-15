@@ -8,7 +8,6 @@ export default function Dashboard() {
     const { error } = await supabaseClient.auth.signOut()
   }
   const User = supabaseClient.auth.user()
-  console.log(User)
 
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState({ title: " ", content: " " })
@@ -44,12 +43,12 @@ export default function Dashboard() {
         <input
           placeholder="Title"
           value={title}
-          onChange={e => { setPost({ ...posts, title: e.target.value }) }}
+          onChange={e => { setPost({title: e.target.value }) }}
         />
         <input
           placeholder="Content"
           value={content}
-          onChange={e => { setPost({ ...posts, content: e.target.value }) }}
+          onChange={e => { setPost({content: e.target.value }) }}
         />
 
         <Button variant="contained" onClick={createPost}>Create POST</Button>
