@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import supabaseClient from "../utils/supabaseClient";
 import styles from '../styles/Dashboard.module.css';
 import Link from 'next/link'
+import Head from 'next/head'
 import { useRouter } from "next/router";
 
 export default function Dashboard() {
@@ -70,10 +71,12 @@ const [modalData, setmodalData] = useState(false);
   const User = supabaseClient.auth.user()
   return (
     <>
-      <div className={styles.dashboard_container}>
-        Dashboard
-        {/* <Button variant="contained">{User.user_metadata.full_name}</Button> */}
-        <Button variant="contained" onClick={signout}>Signout</Button>
+    <Head>
+        <title>Book Of Life | Dashboard</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className={styles.dashboard_container}>Dashboard
+      <Button variant="contained" onClick={signout}>Signout</Button>
         <Link href='/create'><Button variant="contained">Create POST</Button></Link>
         <div className={styles.posts_container}>
           {posts.map(post => (
