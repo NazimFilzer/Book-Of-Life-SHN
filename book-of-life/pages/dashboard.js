@@ -35,8 +35,11 @@ const [open, setOpen] = useState(false);
       .from('posts')
       .delete()
       .eq("id", id);
+      refreshPage();
   }
-
+  function refreshPage() {
+    window.location.reload(false);
+  }
   const style = {
     position: 'absolute',
     top: '50%',
