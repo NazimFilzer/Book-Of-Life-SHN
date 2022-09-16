@@ -4,6 +4,7 @@ import supabaseClient from "../utils/supabaseClient";
 import Link from 'next/link'
 import styles from '../styles/Dashboard.module.css';
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function CreateProfile() {
   const User = supabaseClient.auth.user()
@@ -42,6 +43,10 @@ export default function CreateProfile() {
  
   return (
     <>
+    <Head>
+        <title>Book Of Life | Create</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className={styles.dashboard_container}>
         Create a new Post
         <TextField
