@@ -21,6 +21,7 @@ export default function Dashboard() {
 
   }, [])
 
+  
   async function fetchPosts() {
     const { data } = await supabaseClient
       .from('posts')
