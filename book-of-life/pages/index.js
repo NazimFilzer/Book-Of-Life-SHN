@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import supabaseClient from '../utils/supabaseClient'
 import Hero from '../components/Hero'
-import Dashboard from '../components/Dashboard'
+import Dashboard from './dashboard'
 
 export default function Home() {
   const [session, setSession] = useState(null)
@@ -27,7 +27,7 @@ export default function Home() {
       {!session ? (
         <Hero />
       ) : (
-        <Dashboard />
+        <Dashboard/>
       )}
     </div>
   )
