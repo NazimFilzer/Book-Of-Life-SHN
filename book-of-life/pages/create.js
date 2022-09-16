@@ -10,7 +10,6 @@ export default function CreateProfile() {
   const router=useRouter();
   if(typeof window != 'undefined') {
     const user = supabaseClient.auth.user()
-    console.log(user)
     if(!user){
       router.push('/')
     }

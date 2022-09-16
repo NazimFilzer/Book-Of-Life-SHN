@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 export default function Hero() {
   useEffect(() => {
     const user = supabaseClient.auth.user()
-    console.log(user)
     if(user){
       router.push('/dashboard')
     }
