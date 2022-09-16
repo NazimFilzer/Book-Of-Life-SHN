@@ -69,43 +69,47 @@ const [modalData, setmodalData] = useState(false);
     return color;
   }
   const User = supabaseClient.auth.user()
-  return (
-    <>
-    <Head>
-        <title>Book Of Life | Dashboard</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <div className={styles.dashboard_container}>Dashboard
-      <Button variant="contained">{User.user_metadata.name}</Button>
-      <Button variant="contained" onClick={signout}>Signout</Button>
-        <Link href='/create'><Button variant="contained">Create POST</Button></Link>
-        <div className={styles.posts_container}>
-          {posts.map(post => (
-            <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "400px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
-              <h3 style={{cursor:"pointer"}} onClick={() => {handleOpen();setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
-              <p   style={{cursor:"pointer"}} onClick={() => { handleOpen();setmodalData(post) }}>{post.content.substring(0, 50)} </p>
-              <Button variant="contained" onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
-            </div>
-           
-          ))}
-        
+  if (typeof window === 'undefined') {
+    return <></>;
+  } else {
+    return (
+      <>
+      <Head>
+          <title>Book Of Life | Dashboard</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
+        <div className={styles.dashboard_container}>Dashboard
+        <Button variant="contained">{User.user_metadata.name}</Button>
+        <Button variant="contained" onClick={signout}>Signout</Button>
+          <Link href='/create'><Button variant="contained">Create POST</Button></Link>
+          <div className={styles.posts_container}>
+            {posts.map(post => (
+              <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "400px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
+                <h3 style={{cursor:"pointer"}} onClick={() => {handleOpen();setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
+                <p   style={{cursor:"pointer"}} onClick={() => { handleOpen();setmodalData(post) }}>{post.content.substring(0, 50)} </p>
+                <Button variant="contained" onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
+              </div>
+             
+            ))}
+          
+          </div>
         </div>
-      </div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {modalData? modalData.created_at.substring(0, 10):""}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {modalData.content}
-          </Typography>
-        </Box>
-      </Modal>
-    </>
-  )
-}
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              {modalData? modalData.created_at.substring(0, 10):""}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {modalData.content}
+            </Typography>
+          </Box>
+        </Modal>
+      </>
+    )
+            }}  
+          
