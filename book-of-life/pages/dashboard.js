@@ -30,6 +30,12 @@ const [open, setOpen] = useState(false);
       .select().eq('userId', User.id)
     setPosts(data)
   }
+  async function deletePost(id) {
+    const { data } = await supabaseClient
+      .from('posts')
+      .delete()
+      .eq("id", id);
+  }
 
   const style = {
     position: 'absolute',
@@ -60,10 +66,10 @@ const [open, setOpen] = useState(false);
         <Link href='/create'><Button variant="contained">Create POST</Button></Link>
         <div className={styles.posts_container}>
           {posts.map(post => (
-            <div key={post.id} onClick={handleOpen} style={{ backgroundColor: getRandomColor(), width: "400px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
+            <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "400px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
               <h3>{post.created_at.substring(0, 10)} </h3>
               <p>{post.content} </p>
-             
+              <Button variant="contained" onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
            
           ))}
