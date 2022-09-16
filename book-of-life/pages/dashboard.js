@@ -76,6 +76,7 @@ const [modalData, setmodalData] = useState(false);
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className={styles.dashboard_container}>Dashboard
+      <Button variant="contained">{User.user_metadata.name}</Button>
       <Button variant="contained" onClick={signout}>Signout</Button>
         <Link href='/create'><Button variant="contained">Create POST</Button></Link>
         <div className={styles.posts_container}>
