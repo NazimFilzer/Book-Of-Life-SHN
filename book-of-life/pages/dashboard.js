@@ -44,11 +44,11 @@ const [modalData, setmodalData] = useState(false);
   const style = {
     position: 'absolute',
     top: '50%',
+    wordBreak:"break-all",
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
     boxShadow: 24,
     p: 4,
   };
@@ -72,7 +72,7 @@ const [modalData, setmodalData] = useState(false);
           {posts.map(post => (
             <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "400px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
               <h3 onClick={() => {console.log("trigger Jaggu"); handleOpen();setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
-              <p  onClick={() => { handleOpen();setmodalData(post) }}>{post.content} </p>
+              <p  onClick={() => { handleOpen();setmodalData(post) }}>{post.content.substring(0, 50)} </p>
               <Button variant="contained" onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
            
@@ -88,10 +88,10 @@ const [modalData, setmodalData] = useState(false);
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {modalData.post.created_at.substring(0, 10)}
+            {modalData? modalData.created_at.substring(0, 10):""}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {modalData.post.content}
+          {modalData.content}
           </Typography>
         </Box>
       </Modal>
