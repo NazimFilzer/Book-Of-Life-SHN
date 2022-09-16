@@ -2,7 +2,15 @@ import styles from './Hero.module.css'
 import Button from '@mui/material/Button';
 import supabaseClient from '../utils/supabaseClient';
 import {useRouter } from 'next/router'
+import { useEffect, useState } from 'react';
 export default function Hero() {
+  useEffect(() => {
+    const user = supabaseClient.auth.user()
+    if(user){
+      router.push('/dashboard')
+    }
+  }, [])
+
   const router=useRouter();
     async function signInWithGoogle() {
         const { user, session, error } = await supabaseClient.auth.signIn({
