@@ -71,8 +71,8 @@ const [modalData, setmodalData] = useState(false);
         <div className={styles.posts_container}>
           {posts.map(post => (
             <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "400px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
-              <h3 onClick={() => {console.log("trigger Jaggu"); handleOpen;setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
-              <p  onClick={() => { handleOpen;setmodalData(post) }}>{post.content} </p>
+              <h3 onClick={() => {console.log("trigger Jaggu"); handleOpen();setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
+              <p  onClick={() => { handleOpen();setmodalData(post) }}>{post.content} </p>
               <Button variant="contained" onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
            
@@ -88,10 +88,10 @@ const [modalData, setmodalData] = useState(false);
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {modalData}
+            {modalData.post.created_at.substring(0, 10)}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {modalData}
+          {modalData.post.content}
           </Typography>
         </Box>
       </Modal>
