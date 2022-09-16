@@ -6,8 +6,16 @@ import Link from 'next/link'
 import { useRouter } from "next/router";
 
 export default function Dashboard() {
+  const router=useRouter();
+  if(typeof window != 'undefined') {
+    const user = supabaseClient.auth.user()
+    console.log(user)
+    if(!user){
+      router.push('/')
+    }
+  }
+    
 
-const router=useRouter();
 const [open, setOpen] = useState(false);
 const [modalData, setmodalData] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -28,7 +36,7 @@ const [modalData, setmodalData] = useState(false);
   async function fetchPosts() {
     const { data } = await supabaseClient
       .from('posts')
-      .select().eq('userId', User.id)
+      .select().eq('userId', User?.id)
     setPosts(data)
   }
   async function deletePost(id) {
@@ -71,8 +79,8 @@ const [modalData, setmodalData] = useState(false);
         <div className={styles.posts_container}>
           {posts.map(post => (
             <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "400px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
-              <h3 onClick={() => {console.log("trigger Jaggu"); handleOpen();setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
-              <p  onClick={() => { handleOpen();setmodalData(post) }}>{post.content.substring(0, 50)} </p>
+              <h3 style={{cursor:"pointer"}} onClick={() => {console.log("trigger Jaggu"); handleOpen();setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
+              <p   style={{cursor:"pointer"}} onClick={() => { handleOpen();setmodalData(post) }}>{post.content.substring(0, 50)} </p>
               <Button variant="contained" onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
            
