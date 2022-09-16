@@ -2,12 +2,9 @@ import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import supabaseClient from "../utils/supabaseClient";
 import Link from 'next/link'
-import styles from '../components/Dashboard.module.css';
+import styles from '../styles/Dashboard.module.css';
 
 export default function CreateProfile() {
-  async function signout() {
-    const { error } = await supabaseClient.auth.signOut()
-  }
   const User = supabaseClient.auth.user()
 
   const [posts, setPosts] = useState([]);
@@ -47,7 +44,7 @@ export default function CreateProfile() {
           value={content}
           onChange={e => { setPost({...posts,content: e.target.value }) }}
         />
-       <Link href='/'><Button variant="contained" onClick={createPost}>ADD DIARY ENTRY</Button></Link> 
+       <Link href='/dashboard'><Button variant="contained" onClick={createPost}>ADD DIARY ENTRY</Button></Link> 
       </div>
     </>
   )

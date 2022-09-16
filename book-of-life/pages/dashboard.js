@@ -1,20 +1,24 @@
 import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import supabaseClient from "../utils/supabaseClient";
-import styles from './Dashboard.module.css';
+import styles from '../styles/Dashboard.module.css';
 import Link from 'next/link'
+import { useRouter } from "next/router";
 
 export default function Dashboard() {
+
+const router=useRouter();
   async function signout() {
     const { error } = await supabaseClient.auth.signOut()
+    router.push('/')
   }
-  const User = supabaseClient.auth.user()
 
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState({ content: " " })
   const { content } = post;
   useEffect(() => {
     fetchPosts()
+    
   }, [])
 
   async function fetchPosts() {
@@ -33,11 +37,12 @@ export default function Dashboard() {
     }
     return color;
   }
+  const User = supabaseClient.auth.user()
   return (
     <>
       <div className={styles.dashboard_container}>
         Dashboard
-        <Button variant="contained">{User.user_metadata.name}</Button>
+        {/* <Button variant="contained">{User.user_metadata.full_name}</Button> */}
         <Button variant="contained" onClick={signout}>Signout</Button>
         <Link href='/create'><Button variant="contained">Create POST</Button></Link>
         <div className={styles.posts_container}>
