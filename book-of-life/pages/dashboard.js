@@ -5,8 +5,12 @@ import styles from '../styles/Dashboard.module.css';
 import Link from 'next/link'
 import Head from 'next/head'
 import { useRouter } from "next/router";
+import dynamic from 'next/dynamic'
 
-export default function Dashboard() {
+export default dynamic(() => Promise.resolve(Dashboard), {
+  ssr: false
+})
+function Dashboard() {
   const router=useRouter();
   if(typeof window != 'undefined') {
     const user = supabaseClient.auth.user()
@@ -77,7 +81,7 @@ const [modalData, setmodalData] = useState(false);
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className={styles.dashboard_container}>Dashboard
-      {/* <Button variant="contained">{User?.user_metadata.name}</Button> */}
+      <Button variant="contained" >{User?.user_metadata.name}</Button>
       <Button variant="contained" onClick={signout}>Signout</Button>
         <Link href='/create'><Button variant="contained">Create POST</Button></Link>
         <div className={styles.posts_container}>
