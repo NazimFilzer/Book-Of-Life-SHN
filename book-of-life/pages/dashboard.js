@@ -31,8 +31,8 @@ function Dashboard() {
   }
 
   const [posts, setPosts] = useState([]);
-  const [post, setPost] = useState({ content: " " })
-  const { content } = post;
+  const [post, setPost] = useState({ title:" ",content: " " })
+  const { title,content } = post;
   useEffect(() => {
     fetchPosts()
 
@@ -43,6 +43,7 @@ function Dashboard() {
       .from('posts')
       .select().eq('userId', User?.id)
     setPosts(data)
+    console.log(data)
   }
   async function deletePost(id) {
     const { data } = await supabaseClient
@@ -88,7 +89,8 @@ function Dashboard() {
         <div className={styles.posts_container}>
           {posts.map(post => (
             <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "300px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
-              <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
+              <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.title} </h3>
+              <h4 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h4>
               <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
               <Button variant="contained" style={{ backgroundColor:"#8D0000" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
@@ -105,6 +107,9 @@ function Dashboard() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
+            {modalData ? modalData.title : ""}
+          </Typography>
+          <Typography id="modal-modal-title" variant="h6" component="h4">
             {modalData ? modalData.created_at.substring(0, 10) : ""}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
