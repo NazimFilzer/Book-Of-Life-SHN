@@ -44,7 +44,6 @@ function Dashboard() {
       .from('posts')
       .select().eq('userId', User?.id)
     setPosts(data)
-    console.log(data)
   }
   async function deletePost(id) {
     const { data } = await supabaseClient
