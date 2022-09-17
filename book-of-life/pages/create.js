@@ -17,8 +17,8 @@ export default function CreateProfile() {
   }
 
   const [posts, setPosts] = useState([]);
-  const [post, setPost] = useState({ content: " " });
-  const [post1, setPost1] = useState({ title: " " });
+  const [post, setPost] = useState({ content: "" });
+  const [post1, setPost1] = useState({ title: "" });
   const { content } = post;
   const { title } = post1;
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function CreateProfile() {
         <Button
           variant="contained"
           onClick={() => {
-            if (!title || !content) {
+            if (!title?.trim() || !content?.trim()) {
               alert("Please fill all the fields..");
             } else {
               createPost();
