@@ -47,7 +47,7 @@ export default function CreateProfile() {
         <title>Book Of Life | Create</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className={styles.dashboard_container}>
+      <div className={styles.dashboard_container_1}>
         Create a new Post
         <TextField
           id="outlined-basic"
