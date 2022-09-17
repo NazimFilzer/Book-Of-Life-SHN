@@ -5,9 +5,13 @@ import styles from '../styles/Dashboard.module.css';
 import Link from 'next/link'
 import Head from 'next/head'
 import { useRouter } from "next/router";
-import { red } from "@mui/material/colors";
+import dynamic from 'next/dynamic'
+import { red} from '@mui/material/styles'
 
-export default function Dashboard() {
+export default dynamic(() => Promise.resolve(Dashboard), {
+  ssr: false
+})
+function Dashboard() {
   const router = useRouter();
   if (typeof window != 'undefined') {
     const user = supabaseClient.auth.user()
@@ -27,8 +31,8 @@ export default function Dashboard() {
   }
 
   const [posts, setPosts] = useState([]);
-  const [post, setPost] = useState({ content: " " })
-  const { content } = post;
+  const [post, setPost] = useState({ title:" ",content: " " })
+  const { title,content } = post;
   useEffect(() => {
     fetchPosts()
 
@@ -40,6 +44,7 @@ export default function Dashboard() {
       .from('posts')
       .select().eq('userId', User?.id)
     setPosts(data)
+    console.log(data)
   }
   async function deletePost(id) {
     const { data } = await supabaseClient
@@ -71,20 +76,24 @@ export default function Dashboard() {
     return color;
   }
   const User = supabaseClient.auth.user()
-  
+
   return (
     <>
-      <div className={styles.dashboard_container}>
-        Dashboard
-        {/* <Button variant="contained">{User.email}</Button> */}
-        <Button variant="contained" onClick={signout}>Signout</Button>
+      <Head>
+        <title>Book Of Life | Dashboard</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className={styles.dashboard_container}>Dashboard
+        <Button variant="contained" >{User?.user_metadata.name}</Button>
+        <Button variant="contained" style={{ backgroundColor:"#8D0000" }} onClick={signout}>Signout</Button>
         <Link href='/create'><Button variant="contained">Create POST</Button></Link>
         <div className={styles.posts_container}>
           {posts.map(post => (
-            <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "280px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
-              <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
-              <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "....."} </p>
-              <Button style={{ backgroundColor: '#d50000' }} variant="contained" onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
+            <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "300px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
+              <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.title} </h3>
+              <h4 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h4>
+              <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
+              <Button variant="contained" style={{ backgroundColor:"#8D0000" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
 
           ))}
@@ -99,6 +108,9 @@ export default function Dashboard() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
+            {modalData ? modalData.title : ""}
+          </Typography>
+          <Typography id="modal-modal-title" variant="h6" component="h4">
             {modalData ? modalData.created_at.substring(0, 10) : ""}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
