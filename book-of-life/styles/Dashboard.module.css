@@ -32,7 +32,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
+    
 }
 .posts_container
 {
@@ -42,17 +43,20 @@
     flex-wrap: wrap;
     gap:50px;
     padding: 50px;
+    
 
 }
 .dashboard_nav_logo{
     margin-left: 40px !important;
 }
 .dashboard_button{
-    background: #fff ;
+    background: rgb(251, 238, 255) !important;
     text-align: left !important;
     width: 100%;
     margin-bottom: 10px !important;
     color: #000;
+    box-shadow: none !important;
+
 }
 .dashboard_button_create{
 
