@@ -4,7 +4,6 @@ import supabaseClient from '../utils/supabaseClient';
 import {useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
-import { borderRight } from '@mui/system';
 export default function Hero() {
   useEffect(() => {
     const user = supabaseClient.auth.user()

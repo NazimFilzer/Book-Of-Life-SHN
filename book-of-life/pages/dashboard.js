@@ -58,13 +58,16 @@ function Dashboard() {
   const style = {
     position: 'absolute',
     top: '50%',
+    height:'75%',
     wordBreak: "break-all",
     left: '50%',
+    overflow: 'scroll',
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
+    position:'absolute',
   };
   function getRandomColor() {
     var letters = 'BCDEF'.split('');
@@ -120,13 +123,13 @@ function Dashboard() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {modalData ? modalData.title : ""}
+            <h2>{modalData ? modalData.title : ""}</h2>
           </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h4">
-            {modalData ? modalData.created_at.substring(0, 10) : ""}
+          <h3>{modalData ? modalData.created_at.substring(0, 10) : ""}</h3>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {modalData.content}
+            <p>{modalData.content}</p>
           </Typography>
         </Box>
       </Modal>
