@@ -16,6 +16,7 @@ Supabase is an open source Firebase alternative with a Postgres Database, Authen
 
 1. [Jaison Dennis](https://github.com/jaison080) 
 2. [Nazim Filzer](https://github.com/NazimFilzer) 
+3. [Jamal B](https://github.com/jamaljm) 
 
 ## 🔧 Project UI:
 
