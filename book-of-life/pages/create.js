@@ -49,8 +49,7 @@ export default function CreateProfile() {
       </Head>
       <div className={styles.dashboard_container_1}>
         <h2>Create A New Diary</h2>
-        <br/>
-        <br/>
+      
         <TextField
           id="outlined-basic"
           required
@@ -61,8 +60,7 @@ export default function CreateProfile() {
             setPost1({ ...posts, title: e.target.value });
           }}
         />
-        <br />
-        <br />
+   
         <TextField
           id="outlined-basic"
           label="Diary Entry"
@@ -75,8 +73,7 @@ export default function CreateProfile() {
             setPost({ ...posts, content: e.target.value });
           }}
         />
-        <br/>
-        <br/>
+     
         <Button
         className={styles.dashboard_button_create}  
           variant="contained"
