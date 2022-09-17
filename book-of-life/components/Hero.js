@@ -23,10 +23,9 @@ export default function Hero() {
       }
     return (
       <div className={styles.hero_container}>
+        j;klxkx
         <div style={{fontSize:"35px",fontWeight:"800"}}>BOOK OF LIFE</div>
         <Button variant="contained" onClick={signInWithGoogle}>Login with Google</Button>
       </div>
     )
   }
-  
-  
