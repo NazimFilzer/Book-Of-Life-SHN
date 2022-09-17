@@ -3,6 +3,8 @@ import Button from '@mui/material/Button';
 import supabaseClient from '../utils/supabaseClient';
 import {useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
+import Image from 'next/image'
+import { borderRight } from '@mui/system';
 export default function Hero() {
   useEffect(() => {
     const user = supabaseClient.auth.user()
@@ -21,10 +23,13 @@ export default function Hero() {
           router.push('/dashboard')
         }
       }
+  
     return (
-      <div className={styles.hero_container}>
-        <div style={{fontSize:"35px",fontWeight:"800"}}>BOOK OF LIFE</div>
-        <Button variant="contained" onClick={signInWithGoogle}>Login with Google</Button>
+      <div className={styles.hero_container} >
+        <Image src="/logo.png" width="200" height="200" />
+
+        <Button className={styles.hero_button} variant="contained" onClick={signInWithGoogle}><Image style={{ padding:"10px" }}src="/google.png" width="20" height="20" />
+Login with Google</Button>
       </div>
     )
   }
