@@ -104,7 +104,7 @@ function Dashboard() {
             <div key={post.id} style={{ backgroundColor: "#fff", width: "300px", padding: "20px", borderRadius: "5px", borderTop: "10px solid #fff" , borderColor:getRandomColor(), boxShadow: "5px 10px #888888 .6" }}>
               <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="30" height="20" />{post.created_at.substring(0, 10)} </h3>
               <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
-              <Button variant="contained" style={{ backgroundColor:"#8D0000" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
+              <Button variant="contained" style={{ backgroundColor:"#b16c8e" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
 
 
