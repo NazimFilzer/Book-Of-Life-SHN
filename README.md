@@ -19,11 +19,11 @@ Supabase is an open source Firebase alternative with a Postgres Database, Authen
 
 ## 🔧 Project UI:
 
-![Project Diagram](https://github.com/ICONIC-Saturday-HackNight/Supabase-API/images/img.jpeg)
+![Project Home](https://github.com/ICONIC-Saturday-HackNight/Supabase-API/blob/main/images/img.jpeg)
 
-![Project Output](https://github.com/ICONIC-Saturday-HackNight/Supabase-API/images/img1.jpeg)
+![Project Dashboard](https://github.com/ICONIC-Saturday-HackNight/Supabase-API/blob/main/images/img1.jpeg)
 
-![Project Output](https://github.com/ICONIC-Saturday-HackNight/Supabase-API/images/img2.jpeg)
+![Project Dashboard](https://github.com/ICONIC-Saturday-HackNight/Supabase-API/blob/main/images/img2.jpeg)
 
 # Steps To Run the Project:
 
