@@ -79,13 +79,13 @@
 
 .dashboard_nav{
     background: rgb(255, 255, 255);
-    height: 20vh;
+    height: 50vh;
     width: 100%;
     padding: 5px;
     padding-top: 8px;
     position: relative;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
 }
 }
