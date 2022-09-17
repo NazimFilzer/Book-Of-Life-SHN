@@ -88,12 +88,15 @@ function Dashboard() {
          <div className={style.dashboard_nav_logo}>
          <Image src="/logo.png" width="150" height="150" />
          </div>
-        <Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image style={{ padding:"10px" }} className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button>
-        <Button variant="contained" style={{ backgroundColor:"#fff" , color:"#000"}} onClick={signout} className={styles.dashboard_button}><Image style={{ padding:"10px" }}src="/logout.png" width="20" height="20" />Signout</Button>
-        <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image style={{ padding:"10px" }}src="/create.png" width="20" height="20" />Create POST</Button></Link>
+        <Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button>
+        <Button variant="contained" style={{ backgroundColor:"#fff" , color:"#000"}} onClick={signout} className={styles.dashboard_button}><Image src="/logout.png" width="20" height="20" />Signout</Button>
+        <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image src="/create.png" width="20" height="20" />Create POST</Button></Link>
 
       </div>
       <div className={styles.dashboard_content}>
+        <div className={styles.dashboard_content_nav}>
+          <h2>Dashboard</h2>
+        </div>
       <div className={styles.posts_container}>
 
           {posts.map(post => (
@@ -112,7 +115,6 @@ function Dashboard() {
       </div>
       
       
-      Dashboard
         
    
       </div>
