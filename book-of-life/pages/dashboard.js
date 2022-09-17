@@ -7,7 +7,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from "next/router";
 import dynamic from 'next/dynamic'
-import { red} from '@mui/material/styles'
 import { borderTopColor } from "@mui/system";
 
 export default dynamic(() => Promise.resolve(Dashboard), {
@@ -33,8 +32,8 @@ function Dashboard() {
   }
 
   const [posts, setPosts] = useState([]);
-  const [post, setPost] = useState({ content: " " })
-  const { content } = post;
+  const [post, setPost] = useState({ title:" ",content: " " })
+  const { title,content } = post;
   useEffect(() => {
     fetchPosts()
 
@@ -59,13 +58,16 @@ function Dashboard() {
   const style = {
     position: 'absolute',
     top: '50%',
+    height:'75%',
     wordBreak: "break-all",
     left: '50%',
+    overflow: 'scroll',
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
+    position:'absolute',
   };
   function getRandomColor() {
     var letters = 'BCDEF'.split('');
@@ -89,7 +91,7 @@ function Dashboard() {
          <div className={style.dashboard_nav_logo}>
          <Image src="/logo.png" width="150" height="150" />
          </div>
-        <Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button>
+        <Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button>
         <Button variant="contained" style={{ backgroundColor:"#fff" , color:"#000"}} onClick={signout} className={styles.dashboard_button}><Image src="/logout.png" width="20" height="20" />Signout</Button>
         <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image src="/create.png" width="20" height="20" />Create POST</Button></Link>
 
@@ -101,8 +103,9 @@ function Dashboard() {
       <div className={styles.posts_container}>
 
           {posts.map(post => (
-            <div key={post.id} style={{ backgroundColor: "#fff", width: "300px", padding: "20px", borderRadius: "5px", borderTop: "10px solid #fff" , borderColor:getRandomColor(), boxShadow: "5px 10px #888888 .6" }}>
-              <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="30" height="20" />{post.created_at.substring(0, 10)} </h3>
+           <div key={post.id} style={{ backgroundColor: "#fff", width: "300px", padding: "20px", borderRadius: "5px", borderTop: "10px solid #fff" , borderColor:getRandomColor(), boxShadow: "5px 10px #888888 .6" }}>
+           <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="30" height="20" />{post.created_at.substring(0, 10)} </h3>
+           <h4 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h4>
               <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
               <Button variant="contained" style={{ backgroundColor:"#b16c8e" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
@@ -120,13 +123,13 @@ function Dashboard() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {modalData ? modalData.title : ""}
+            <h2>{modalData ? modalData.title : ""}</h2>
           </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h4">
-            {modalData ? modalData.created_at.substring(0, 10) : ""}
+          <h3>{modalData ? modalData.created_at.substring(0, 10) : ""}</h3>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {modalData.content}
+            <p>{modalData.content}</p>
           </Typography>
         </Box>
       </Modal>
