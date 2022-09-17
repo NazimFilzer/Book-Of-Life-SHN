@@ -19,17 +19,21 @@
     row-gap: 40px;
     height: 100vh;
     padding: 50px;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    
 }
 .dashboard_nav{
     background: rgb(255, 255, 255);
     height: 100vh;
-    width: 270px;
+    width: 270px ;
     padding: 5px;
     padding-top: 8px;
     position: relative;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
 }
 .posts_container
 {
@@ -45,11 +49,19 @@
     margin-left: 40px !important;
 }
 .dashboard_button{
-    background: #fff ;
+    background:  rgb(251, 238, 255) !important ;
     text-align: left !important;
     width: 100%;
     margin-bottom: 10px !important;
+    column-gap: 3px;
     color: #000;
+    box-shadow: none !important;
+
+}
+.dashboard_button_create{
+background: #b16c8e !important;
+    width: 30%;
+
 }
 .dashboard_button_img{
 
@@ -87,5 +99,10 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+.dashboard_button_create{
+
+    width: 100%;
+
 }
 }
