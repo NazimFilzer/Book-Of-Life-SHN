@@ -48,14 +48,14 @@ export default function CreateProfile() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className={styles.dashboard_container_1}>
-        <h2>Create a new Post</h2>
+        <h2>Create A New Diary</h2>
         <br/>
         <br/>
         <TextField
           id="outlined-basic"
           required
           label="Title"
-          sx={{ width: "80%" }}
+          sx={{ width: "100%" }}
           value={title}
           onChange={(e) => {
             setPost1({ ...posts, title: e.target.value });
@@ -67,7 +67,7 @@ export default function CreateProfile() {
           id="outlined-basic"
           label="Diary Entry"
           required
-          sx={{ width: "80%" }}
+          sx={{ width: "100%" }}
           multiline
           minRows={4}
           value={content}
@@ -78,6 +78,7 @@ export default function CreateProfile() {
         <br/>
         <br/>
         <Button
+        className={styles.dashboard_button_create}  
           variant="contained"
           onClick={() => {
             if (!title?.trim() || !content?.trim()) {

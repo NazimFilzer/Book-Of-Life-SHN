@@ -7,7 +7,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from "next/router";
 import dynamic from 'next/dynamic'
-import { red} from '@mui/material/styles'
+import { borderTopColor } from "@mui/system";
 
 export default dynamic(() => Promise.resolve(Dashboard), {
   ssr: false
@@ -91,7 +91,7 @@ function Dashboard() {
          <div className={style.dashboard_nav_logo}>
          <Image src="/logo.png" width="150" height="150" />
          </div>
-        <Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button>
+        <Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button>
         <Button variant="contained" style={{ backgroundColor:"#fff" , color:"#000"}} onClick={signout} className={styles.dashboard_button}><Image src="/logout.png" width="20" height="20" />Signout</Button>
         <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image src="/create.png" width="20" height="20" />Create POST</Button></Link>
 
@@ -103,11 +103,11 @@ function Dashboard() {
       <div className={styles.posts_container}>
 
           {posts.map(post => (
-            <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "300px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
-              <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.title} </h3>
-              <h4 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h4>
+           <div key={post.id} style={{ backgroundColor: "#fff", width: "300px", padding: "20px", borderRadius: "5px", borderTop: "10px solid #fff" , borderColor:getRandomColor(), boxShadow: "5px 10px #888888 .6" }}>
+           <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="30" height="20" />{post.created_at.substring(0, 10)} </h3>
+           <h4 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h4>
               <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
-              <Button variant="contained" style={{ backgroundColor:"#8D0000" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
+              <Button variant="contained" style={{ backgroundColor:"#b16c8e" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
 
 
