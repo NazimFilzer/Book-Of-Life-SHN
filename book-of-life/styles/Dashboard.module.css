@@ -42,18 +42,16 @@
 
 }
 .dashboard_nav_logo{
-    margin-left: 50px;
+    margin-left: 40px !important;
 }
 .dashboard_button{
-    background: #fff;
-    text-align: left;
-    width: 90%;
-    margin-bottom: 10px;
+    background: #fff ;
+    text-align: left !important;
+    width: 100%;
+    margin-bottom: 10px !important;
     color: #000;
 }
 .dashboard_button_img{
- gap: 10px;
- margin-left: 10px;
 
 
 }
@@ -63,4 +61,31 @@
     margin-left: 50px;
 
 
+}
+
+@media screen and (max-width: 800px) {
+   
+    .dashboard_container
+{
+    background-image: url("/bg2.jpg");
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+.dashboard_nav{
+    background: rgb(255, 255, 255);
+    height: 20vh;
+    width: 100%;
+    padding: 5px;
+    padding-top: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
 }

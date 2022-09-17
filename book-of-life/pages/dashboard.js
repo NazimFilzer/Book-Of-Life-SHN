@@ -111,6 +111,24 @@ function Dashboard() {
           ))}
 
         </div>
+        <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            {modalData ? modalData.title : ""}
+          </Typography>
+          <Typography id="modal-modal-title" variant="h6" component="h4">
+            {modalData ? modalData.created_at.substring(0, 10) : ""}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {modalData.content}
+          </Typography>
+        </Box>
+      </Modal>
 
       </div>
       
