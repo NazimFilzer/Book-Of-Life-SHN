@@ -29,11 +29,14 @@
     min-height: 100%;
     min-width: 270px ;
     padding: 5px;
-    padding-top: 8px;
+    padding-top: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+.dashboard_content{
+    min-height: 100vh;
 }
 .posts_container
 {
@@ -72,6 +75,7 @@ background: #b16c8e !important;
 .dashboard_content_nav{
     width: 100%;
     margin-left: 50px;
+    padding-top: 30px;
 
 
 }
