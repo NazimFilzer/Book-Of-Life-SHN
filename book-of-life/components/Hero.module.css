@@ -17,15 +17,26 @@
 .hero_button {
     transition: background-color .3s, box-shadow .3s;
     background: #fff;
-    padding: 12px 12px 12px 20px;
+    padding: 12px 17px 12px 20px;
     border: none;
-    border-radius: 3px;
+    border-radius: 15px;
     box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
     gap: 10px;
     color: #757575;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
+    margin-left: 10px;
+
 }
 .hero_button:hover{
     color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+    .hero_container
+    {
+
+        background-image: url("/bgm.jpg");
+       
+    }
 }
