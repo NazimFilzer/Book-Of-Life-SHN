@@ -48,17 +48,17 @@ export default function CreateProfile() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className={styles.dashboard_container_1}>
-        Create a new Post
+        <h2>Create a new Diary</h2>
         <TextField
           id="outlined-basic"
           label="Diary Entry"
-          sx={{width:"60%"}}
+          sx={{width:"100%"}}
           multiline
           minRows={4}
           value={content}
           onChange={e => { setPost({...posts,content: e.target.value }) }}
         />
-       <Link href='/dashboard'><Button variant="contained" onClick={createPost}>ADD DIARY ENTRY</Button></Link> 
+       <Link href='/dashboard'><Button className={styles.dashboard_button_create}  variant="contained" onClick={createPost}>ADD DIARY ENTRY</Button></Link> 
       </div>
     </>
   )

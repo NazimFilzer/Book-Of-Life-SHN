@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { useRouter } from "next/router";
 import dynamic from 'next/dynamic'
 import { red} from '@mui/material/styles'
+import { borderTopColor } from "@mui/system";
 
 export default dynamic(() => Promise.resolve(Dashboard), {
   ssr: false
@@ -100,8 +101,8 @@ function Dashboard() {
       <div className={styles.posts_container}>
 
           {posts.map(post => (
-            <div key={post.id} style={{ backgroundColor: getRandomColor(), width: "300px", padding: "10px", borderRadius: "5px", border: "1px solid", boxShadow: "5px 10px #888888" }}>
-              <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h3>
+            <div key={post.id} style={{ backgroundColor: "#fff", width: "300px", padding: "20px", borderRadius: "5px", borderTop: "10px solid #fff" , borderColor:getRandomColor(), boxShadow: "5px 10px #888888 .6" }}>
+              <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="30" height="20" />{post.created_at.substring(0, 10)} </h3>
               <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
               <Button variant="contained" style={{ backgroundColor:"#8D0000" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
