@@ -28,7 +28,7 @@ export default function Home() {
         <title>Book Of Life</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-    <div className="container" style={{ padding: '50px 0 100px 0' }}>
+    <div className="container" style={{ padding: '0px 0 0px 0' }}>
       {!session ? (
         <Hero />
       ) : (
