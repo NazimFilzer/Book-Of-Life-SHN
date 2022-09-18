@@ -85,7 +85,7 @@ function Dashboard() {
   return (
     <>
       <Head>
-        <title>Book Of Life | Dashboard</title>
+        <title>Book Of Life</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className={styles.dashboard_container}>
