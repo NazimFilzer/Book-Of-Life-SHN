@@ -130,12 +130,12 @@ function Dashboard() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-        <Button variant="contained" style={{ alignItems:"flex-end",backgroundColor:"#b16c8e" }} onClick={() => { setOpen(false)}} props={post} >CLOSE</Button>
+        <Button variant="contained" style={{ alignItems:"flex-end",backgroundColor:"#b16c8e" ,paddingRight:"5px",paddingLeft:"5px"}} onClick={() => { setOpen(false)}} props={post} ><Image src="/close.png" width="22" height="22" /></Button>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <h2>{modalData ? modalData.title : ""}</h2>
           </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h4">
-          <h3>{modalData ? modalData.created_at.substring(0, 10) : ""}</h3>
+          <h3 style={{ fontSize:"17px"}} ><Image src="/cala.png" width="25" height="16" />{modalData ? modalData.created_at.substring(0, 10) : ""}</h3>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <p>{modalData.content}</p>
