@@ -113,7 +113,7 @@ function Dashboard() {
 
           {posts.map(post => (
            <div key={post.id} style={{ backgroundColor: "#fff", width: "300px", padding: "20px", borderRadius: "5px", borderTop: "10px solid #fff" , borderColor:getRandomColor(), boxShadow: "5px 10px #888888 .6" }}>
-           <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/book1.png" width="30" height="20" />{post.title} </h3>
+           <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/book1.png" style={{ paddingTop:"20px" }} width="30" height="20" />{post.title} </h3>
            <h5 style={{ cursor: "pointer" , fontSize:"14px"}} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="22" height="15" />{post.created_at.substring(0, 10)} </h5>
               <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
               <Button variant="contained" style={{ backgroundColor:"#b16c8e" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>

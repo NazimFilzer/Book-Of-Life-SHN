@@ -16,12 +16,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    row-gap: 40px;
+    row-gap: 10px;
     height: 100vh;
-    padding: 50px;
     overflow-x: hidden;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     
 }
 .dashboard_nav{
@@ -50,6 +49,18 @@
     
 
 }
+.posts_container_1
+{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:17px;
+    padding: 50px;
+    
+
+}
+
 .dashboard_nav_logo{
     margin-left: 0px !important;
     position: sticky !important;

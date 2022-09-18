@@ -71,7 +71,7 @@ export function CreateProfile() {
         <div className={styles.dashboard_content_nav}>
           <h2>Create A New Diary</h2>
         </div>
-        <div className={styles.posts_container}>
+        <div className={styles.posts_container_1}>
         <TextField
           id="outlined-basic"
           required
