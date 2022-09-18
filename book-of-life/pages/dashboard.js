@@ -63,7 +63,7 @@ function Dashboard() {
     border: '0px solid #000',
     wordBreak: "break-all",
     left: '50%',
-  
+  overflowY:"scroll",
     transform: 'translate(-50%, -50%)',
     width: '80%',
     bgcolor: 'background.paper',
