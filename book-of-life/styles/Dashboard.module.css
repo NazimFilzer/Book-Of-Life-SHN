@@ -84,6 +84,15 @@ background: #b16c8e !important;
 
 }
 
+.posts_container_diary{
+    background-image: url("/spiral.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 10vh;
+    top: -52px;
+    position: relative;
+    overflow: visible !important; 
+}
 @media screen and (max-width: 800px) {
    
     .dashboard_container
@@ -132,4 +141,27 @@ background: #b16c8e !important;
     justify-content: center;
 
 }
+}
+
+@media (min-width: 1500px) and (max-width: 2024px){
+    .posts_container_diary{
+
+        top: -63px;
+
+    }
+}
+@media  (min-width: 1265px) and (max-width: 1499px){
+    .posts_container_diary{
+
+        top: -56px;
+
+    }
+}
+
+@media (min-width: 2024px) and (max-width: 3000px){
+    .posts_container_diary{
+
+        top: -74px;
+
+    }
 }

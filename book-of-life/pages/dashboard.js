@@ -60,16 +60,17 @@ function Dashboard() {
     top: '50%',
     margin: '2px',
     height:'75%',
-    border: '2px solid #000',
+    border: '0px solid #000',
     wordBreak: "break-all",
     left: '50%',
-    overflow: 'scroll',
+  
     transform: 'translate(-50%, -50%)',
     width: '80%',
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
     position:'absolute',
+    
   };
   function getRandomColor() {
     var letters = 'BCDEF'.split('');
@@ -129,7 +130,9 @@ function Dashboard() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} >
+        <div className={styles.posts_container_diary}>
+        </div>
         <Button variant="contained" style={{ alignItems:"flex-end",backgroundColor:"#b16c8e" ,paddingRight:"5px",paddingLeft:"5px"}} onClick={() => { setOpen(false)}} props={post} ><Image src="/close.png" width="22" height="22" /></Button>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <h2>{modalData ? modalData.title : ""}</h2>
@@ -141,6 +144,8 @@ function Dashboard() {
             <p>{modalData.content}</p>
           </Typography>
         </Box>
+
+        
       </Modal>
 
       </div>
