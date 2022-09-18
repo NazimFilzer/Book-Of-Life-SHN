@@ -85,7 +85,7 @@ function Dashboard() {
   return (
     <>
       <Head>
-        <title>Book Of Life | Dashboard</title>
+        <title>Book Of Life</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className={styles.dashboard_container}>
@@ -116,8 +116,8 @@ function Dashboard() {
            <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/book1.png" style={{ paddingTop:"20px" }} width="30" height="20" />{post.title} </h3>
            <h5 style={{ cursor: "pointer" , fontSize:"14px"}} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="22" height="15" />{post.created_at.substring(0, 10)} </h5>
               <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
-              <Button variant="contained" style={{ backgroundColor:"rgb(200 122 166)",borderRadius:"12%",marginRight:"10px", cursor: "pointer" , fontSize:"11px" }} onClick={() => { handleOpen(); setmodalData(post) }} >Read more</Button>
-              <Button variant="contained" style={{ backgroundColor:"rgb(181 119 154)",borderRadius:"12%",paddingLeft:"0px",paddingRight:"0px" }} onClick={() => { deletePost(post.id) }} props={post} ><Image src="/delete.png" width="18" height="18" /></Button>
+              <Button variant="contained" style={{ backgroundColor:"rgb(248 230 254)" ,borderRadius:"12%",marginRight:"10px", cursor: "pointer" , fontSize:"11px",boxShadow:"none",color:"#000" }} onClick={() => { handleOpen(); setmodalData(post) }} >Read more</Button>
+              <Button variant="contained" style={{ backgroundColor:"rgb(255 227 227)",borderRadius:"12%",paddingLeft:"0px",paddingRight:"0px" ,boxShadow:"none"}} onClick={() => { deletePost(post.id) }} props={post} ><Image src="/delete.png" width="18" height="18" /></Button>
             </div>
 
 

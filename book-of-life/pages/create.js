@@ -52,7 +52,7 @@ export function CreateProfile() {
   return (
     <>
       <Head>
-        <title>Book Of Life | Create</title>
+        <title>Book Of Life</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
