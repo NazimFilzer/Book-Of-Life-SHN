@@ -58,12 +58,14 @@ function Dashboard() {
   const style = {
     position: 'absolute',
     top: '50%',
+    margin: '2px',
     height:'75%',
+    border: '2px solid #000',
     wordBreak: "break-all",
     left: '50%',
     overflow: 'scroll',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: '80%',
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
@@ -88,7 +90,7 @@ function Dashboard() {
       <div className={styles.dashboard_container}>
 
       <div className={styles.dashboard_nav} >
-         <div className={style.dashboard_nav_logo}>
+         <div className={styles.dashboard_nav_logo}>
          <Image src="/logo.png" width="150" height="150" />
          </div><br/>
          
@@ -127,6 +129,7 @@ function Dashboard() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+        <Button variant="contained" style={{ alignItems:"flex-end",backgroundColor:"#b16c8e" }} onClick={() => { setOpen(false)}} props={post} >CLOSE</Button>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <h2>{modalData ? modalData.title : ""}</h2>
           </Typography>
