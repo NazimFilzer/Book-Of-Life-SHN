@@ -61,7 +61,7 @@ export function CreateProfile() {
          <div className={styles.dashboard_nav_logo}>
          <Image src="/logo.png" width="150" height="150" />
          </div><br/>
-         <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />MY DIARY</Button></Link>
+         <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", textAlign:"right" }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/book.png" width="20" height="20" />MY DIARY</Button></Link>
          <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image src="/create.png" width="20" height="20" />Create POST</Button></Link>
          <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button></Link>
 
