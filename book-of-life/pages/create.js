@@ -5,8 +5,12 @@ import Link from "next/link";
 import styles from "../styles/Dashboard.module.css";
 import { useRouter } from "next/router";
 import Head from "next/head";
-
-export default function CreateProfile() {
+import Image from 'next/image'
+import dynamic from "next/dynamic";
+export default dynamic(() => Promise.resolve(CreateProfile), {
+  ssr: false
+})
+export function CreateProfile() {
   const User = supabaseClient.auth.user();
   const router = useRouter();
   if (typeof window != "undefined") {
@@ -14,6 +18,10 @@ export default function CreateProfile() {
     if (!user) {
       router.push("/");
     }
+  }
+  async function signout() {
+    const { error } = await supabaseClient.auth.signOut()
+    router.push('/')
   }
 
   const [posts, setPosts] = useState([]);
@@ -47,9 +55,23 @@ export default function CreateProfile() {
         <title>Book Of Life | Create</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className={styles.dashboard_container_1}>
-        <h2>Create A New Diary</h2>
-      
+
+      <div className={styles.dashboard_container}>
+      <div className={styles.dashboard_nav} >
+         <div className={styles.dashboard_nav_logo}>
+         <Image src="/logo.png" width="150" height="150" />
+         </div><br/>
+         <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />MY DIARY</Button></Link>
+         <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image src="/create.png" width="20" height="20" />Create POST</Button></Link>
+         <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button></Link>
+
+        <Button variant="contained" style={{ backgroundColor:"#fff" , color:"#000"}} onClick={signout} className={styles.dashboard_button}><Image src="/logout.png" width="20" height="20" />Signout</Button>
+      </div>
+      <div className={styles.dashboard_content}>
+        <div className={styles.dashboard_content_nav}>
+          <h2>Create A New Diary</h2>
+        </div>
+        <div className={styles.posts_container}>
         <TextField
           id="outlined-basic"
           required
@@ -87,6 +109,8 @@ export default function CreateProfile() {
         >
           ADD DIARY ENTRY
         </Button>
+        </div>
+      </div>
       </div>
     </>
   );

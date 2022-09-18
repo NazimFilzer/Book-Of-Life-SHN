@@ -91,9 +91,13 @@ function Dashboard() {
          <div className={style.dashboard_nav_logo}>
          <Image src="/logo.png" width="150" height="150" />
          </div><br/>
-        <Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button>
+         
+          <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />MY DIARY</Button></Link>
+         <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image src="/create.png" width="20" height="20" />Create POST</Button></Link>
+         <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button></Link>
+
         <Button variant="contained" style={{ backgroundColor:"#fff" , color:"#000"}} onClick={signout} className={styles.dashboard_button}><Image src="/logout.png" width="20" height="20" />Signout</Button>
-        <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image src="/create.png" width="20" height="20" />Create POST</Button></Link>
+        
 
       </div>
       <div className={styles.dashboard_content}>
