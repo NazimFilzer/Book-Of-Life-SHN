@@ -94,7 +94,7 @@ function Dashboard() {
          <Image src="/logo.png" width="150" height="150" />
          </div><br/>
          
-          <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />MY DIARY</Button></Link>
+          <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", textAlign:"right" }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/book.png" width="20" height="20" />MY DIARY</Button></Link>
          <Link href='/create'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000" }} className={styles.dashboard_button}><Image src="/create.png" width="20" height="20" />Create POST</Button></Link>
          <Link href='/dashboard'><Button variant="contained" style={{ backgroundColor:"#fff", color:"#000", }} className={styles.dashboard_button}><Image className={styles.dashboard_button_img} src="/profile.png" width="20" height="20" />{User?.user_metadata.name}</Button></Link>
 
@@ -103,16 +103,17 @@ function Dashboard() {
 
       </div>
       <div className={styles.dashboard_content}>
-        <div className={styles.dashboard_content_nav}>
-          <h2>Dashboard</h2>
+      <div className={styles.dashboard_content_nav}>
+          <h2>My Diary</h2>
         </div>
         
       <div className={styles.posts_container}>
+    
 
           {posts.map(post => (
            <div key={post.id} style={{ backgroundColor: "#fff", width: "300px", padding: "20px", borderRadius: "5px", borderTop: "10px solid #fff" , borderColor:getRandomColor(), boxShadow: "5px 10px #888888 .6" }}>
-           <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="30" height="20" />{post.title} </h3>
-           <h4 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} >{post.created_at.substring(0, 10)} </h4>
+           <h3 style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/book.png" width="20" height="20" />{post.title} </h3>
+           <h5 style={{ cursor: "pointer" , fontSize:"14px"}} onClick={() => { handleOpen(); setmodalData(post) }} ><Image src="/cala.png" width="22" height="15" />{post.created_at.substring(0, 10)} </h5>
               <p style={{ cursor: "pointer" }} onClick={() => { handleOpen(); setmodalData(post) }}>{post.content.substring(0, 30) + "..."} </p>
               <Button variant="contained" style={{ backgroundColor:"#b16c8e" }} onClick={() => { deletePost(post.id) }} props={post} >Delete</Button>
             </div>
