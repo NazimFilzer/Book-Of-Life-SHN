@@ -64,7 +64,7 @@
 }
 .dashboard_button_create{
 background: #b16c8e !important;
-    width: 30%;
+    width: 50% !important;
 
 }
 .dashboard_button_img{
@@ -107,7 +107,15 @@ background: #b16c8e !important;
 }
 .dashboard_button_create{
 
-    width: 100%;
+    width: 100% !important;
+
+}
+.posts_2_container
+{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
 
 }
 }
