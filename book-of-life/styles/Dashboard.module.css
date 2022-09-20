@@ -16,20 +16,19 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    row-gap: 40px;
+    row-gap: 10px;
     height: 100vh;
-    padding: 50px;
     overflow-x: hidden;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     
 }
 .dashboard_nav{
     background: rgb(255, 255, 255);
-    min-height: 100%;
+    min-height: 100vh;
     min-width: 270px ;
-    padding: 5px;
-    padding-top: 10px;
+    padding: 25px;
+    padding-top: 40px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -37,6 +36,7 @@
 }
 .dashboard_content{
     min-height: 100vh;
+
 }
 .posts_container
 {
@@ -49,8 +49,22 @@
     
 
 }
+.posts_container_1
+{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:17px;
+    padding: 50px;
+    
+
+}
+
 .dashboard_nav_logo{
-    margin-left: 40px !important;
+    margin-left: 0px !important;
+    position: sticky !important;
+
 }
 .dashboard_button{
     background:  rgb(251, 238, 255) !important ;
@@ -74,12 +88,22 @@ background: #b16c8e !important;
 
 .dashboard_content_nav{
     width: 100%;
-    margin-left: 50px;
-    padding-top: 30px;
+    margin-left: 5vw;
+    padding-top: 10px;
+    margin-bottom: -20px;
 
 
 }
 
+.posts_container_diary{
+    background-image: url("/spiral.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 10vh;
+    top: -52px;
+    position: relative;
+    overflow: visible !important; 
+}
 @media screen and (max-width: 800px) {
    
     .dashboard_container
@@ -96,7 +120,7 @@ background: #b16c8e !important;
 
 .dashboard_nav{
     background: rgb(255, 255, 255);
-    height: 50vh;
+    min-height: 40vh;
     width: 100%;
     padding: 5px;
     padding-top: 8px;
@@ -104,10 +128,20 @@ background: #b16c8e !important;
     display: flex;
     flex-direction: column;
     text-align: center;
+    border-radius: 0px 0px 20px 20px;
 }
+
 .dashboard_button_create{
 
     width: 100% !important;
+
+}
+.dashboard_content_nav{
+    width: 100%;
+    margin-left: 0vw;
+    padding-top: 10px;
+    text-align: center;
+
 
 }
 .posts_2_container
@@ -118,4 +152,27 @@ background: #b16c8e !important;
     justify-content: center;
 
 }
+}
+
+@media (min-width: 1500px) and (max-width: 2024px){
+    .posts_container_diary{
+
+        top: -63px;
+
+    }
+}
+@media  (min-width: 1265px) and (max-width: 1499px){
+    .posts_container_diary{
+
+        top: -56px;
+
+    }
+}
+
+@media (min-width: 2024px) and (max-width: 3000px){
+    .posts_container_diary{
+
+        top: -74px;
+
+    }
 }
